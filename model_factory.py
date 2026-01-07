@@ -35,6 +35,15 @@ def build_model(args):
             model.load_model(model_name_or_path=model_name_or_path)
         else:
             model.load_model()
+
+    elif model_type == "qwen3vl":
+        from models.qwen3vl import Qwen3VLModel
+
+        model = Qwen3VLModel()
+        if args.model_name_or_path:
+            model.load_model(model_name_or_path=model_name_or_path)
+        else:
+            model.load_model()
     elif model_type == "holo1_5":
         from models.holo1_5 import Holo1_5Model
 
@@ -64,6 +73,11 @@ def build_model(args):
         from models.gpt5 import GPT5Model
 
         model = GPT5Model()
+
+    elif model_type == "gemini3":
+        from models.gemini3 import Gemini3Model
+
+        model = Gemini3Model()
 
     elif model_type == "osatlas-4b":
         from models.osatlas4b import OSAtlas4BModel
